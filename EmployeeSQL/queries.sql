@@ -7,9 +7,9 @@ INNER JOIN salaries
 ON employees.emp_no = salaries.emp_no;
 
 --List first name, last name, and hire date for employees who were hired in 1986.
-SELECT first_name, last_name, hire_date,
-FROM emloyees
-WHERE hire_date LIKE 1986%;
+SELECT first_name, last_name, hire_date
+FROM employees
+WHERE hire_date BETWEEN '1986-01-01' AND '1986-12-31';
 
 --List the manager of each department with the following information: 
 --department number, department name, the manager's employee number, last name, first name.
@@ -58,7 +58,7 @@ WHERE departments.dept_name = 'Sales' OR departments.dept_name = 'Development';
 --In descending order, list the frequency count of employee last names, 
 --i.e., how many employees share each last name.
 SELECT last_name AS "Last Name",
-COUNT(last_name) AS "Count of Last Names"
+COUNT(last_name) AS "Frequency of Last Names"
 FROM employees
 GROUP BY last_name
 ORDER BY
